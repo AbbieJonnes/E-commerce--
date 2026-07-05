@@ -1,23 +1,33 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 
 function ProductDetails() {
   const { id } = useParams();
+  const { addToCart } = useContext(CartContext);
 
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://dummyjson.com/products/${id}`)
+    fetch("/products/Product.json")
       .then((response) => response.json())
       .then((data) => {
-        setProduct(data);
+        const foundProduct = data.find(
+          (item) => item.id === Number(id)
+        );
+
+        setProduct(foundProduct);
         setLoading(false);
       });
   }, [id]);
 
   if (loading) {
     return <h2 style={{ textAlign: "center" }}>Loading...</h2>;
+  }
+
+  if (!product) {
+    return <h2 style={{ textAlign: "center" }}>Product not found.</h2>;
   }
 
   return (
@@ -41,12 +51,7 @@ function ProductDetails() {
       <div style={{ flex: 1 }}>
         <h1>{product.title}</h1>
 
-        <p
-          style={{
-            color: "gray",
-            margin: "10px 0",
-          }}
-        >
+        <p style={{ color: "gray" }}>
           {product.category}
         </p>
 
@@ -54,19 +59,14 @@ function ProductDetails() {
           ${product.price}
         </h2>
 
-        <p style={{ marginTop: "20px" }}>
-          {product.description}
-        </p>
+        <p>{product.description}</p>
 
-        <p style={{ marginTop: "15px" }}>
-          ⭐ Rating: {product.rating}
-        </p>
+        <p>⭐ {product.rating}</p>
 
-        <p>
-          📦 Stock: {product.stock}
-        </p>
+        <p>📦 Stock: {product.stock}</p>
 
         <button
+          onClick={() => addToCart(product)}
           style={{
             marginTop: "20px",
             padding: "12px 20px",
