@@ -5,7 +5,6 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Cart from "./components/Cart";
 import ProductCard from "./components/ProductCard";
 import ProductList from "./components/ProductList";
-import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Register from "./pages/Register";

@@ -1,18 +1,114 @@
-# React + Vite
+# Melody Music Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## Project Description
 
-Currently, two official plugins are available:
+Melody Music Store is a React-based e-commerce web application where users can browse products, view product details, search for products, add items to a shopping cart, register or log in, and proceed to a protected checkout page. The project demonstrates the use of React components, React Router, Context API, and data fetching from an external API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Home page
+- Responsive navigation bar
+- Product listing fetched from an API
+- Product details page
+- Shopping cart
+- User registration
+- User login
+- Protected checkout page
+- Authentication using Context API
+- Cart management using Context API
+- Responsive layout
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Technologies Used
 
-Note: This will impact Vite dev & build performances.
+- React
+- Vite
+- React Router DOM
+- Context API
+- JavaScript
+- CSS
+- Fetch API
 
-## Expanding the Oxlint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```
+src/
+│
+├── components/
+│   ├── Footer.jsx
+│   ├── Navbar.jsx
+│   ├── ProductCard.jsx
+│   ├── ProductList.jsx
+│   └── ProtectedRoute.jsx
+│
+├── context/
+│   ├── AuthContext.jsx
+│   └── CartContext.jsx
+│
+├── pages/
+│   ├── Home.jsx
+│   ├── Products.jsx
+│   ├── ProductDetails.jsx
+│   ├── Cart.jsx
+│   ├── Login.jsx
+│   ├── Register.jsx
+│   └── Checkout.jsx
+│
+├── App.jsx
+├── main.jsx
+└── index.css
+```
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/AbbieJonnes/E-commerce--.git
+```
+
+Navigate into the project folder:
+
+```bash
+cd E-commerce--
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+## Usage
+
+1. Open the application in your browser.
+2. Browse the available products.
+3. View product details.
+4. Add products to the cart.
+5. Register or log in.
+6. Proceed to the protected checkout page.
+
+## Future Improvements
+
+- Search and category filtering
+- Wishlist functionality
+- Quantity update buttons with improved styling
+- Toast notifications
+- Related products section
+- Persistent authentication using localStorage
+- Backend integration for user authentication and orders
+
+## Author
+
+GitHub: https://github.com/AbbieJonnes
+
+Email: abigaelmwangi534@gmail.com
+
+## License
+
+This project is for educational purposes.
