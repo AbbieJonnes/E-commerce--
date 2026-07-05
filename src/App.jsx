@@ -24,13 +24,8 @@ return (
     <Route path="/Login" element={<Login/>}/>
     <Route path="/Register" element={<Register/>}/>
     <Route path="/ProductDetails" element={<ProductDetails/>}/>
-    <Route path="/checkout" element={<Checkout />} />
     <Route
   path="/checkout"element={<ProtectedRoute><Checkout /></ProtectedRoute> }/>
-
-
-
-
   </Routes>
   </Footer>
   </BrowserRouter>
