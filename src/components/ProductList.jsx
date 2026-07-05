@@ -7,7 +7,7 @@ function ProductList() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("https://dummyjson.com/products")
+    fetch("/products/Product.json")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch products.");
@@ -15,7 +15,7 @@ function ProductList() {
         return response.json();
       })
       .then((data) => {
-        setProducts(data.products);
+        setProducts(data);
         setLoading(false);
       })
       .catch((err) => {
@@ -29,23 +29,41 @@ function ProductList() {
   }
 
   if (error) {
-    return <h2 style={{ textAlign: "center", color: "red" }}>{error}</h2>;
+    return (
+      <h2 style={{ textAlign: "center", color: "red" }}>
+        {error}
+      </h2>
+    );
   }
 
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-        gap: "20px",
-        padding: "30px",
-      }}
-    >
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
+    <div>
+      <h1
+        style={{
+          textAlign: "center",
+          margin: "30px 0",
+        }}
+      >
+        Our Musical Instruments
+      </h1>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+          gap: "20px",
+          padding: "20px",
+        }}
+      >
+        {products.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+          />
+        ))}
+      </div>
     </div>
-  )
+  );
 }
 
 export default ProductList;
