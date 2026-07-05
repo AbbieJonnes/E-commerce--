@@ -46,24 +46,6 @@ function ProductList() {
       ))}
     </div>
   )
-  function Products() {
-    return (
-      <div>
-        <h1
-          style={{
-            textAlign: "center",
-            marginTop: "20px",
-          }}
-        >
-          Our Products
-        </h1>
-  
-        <ProductList />
-      </div>
-    );
-  }
-  
-  //export default Products;
 }
 
 export default ProductList;

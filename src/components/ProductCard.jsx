@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 function ProductCard({ product }) {
+  const { addToCart } = useContext(CartContext);
   return (
     <div
       style={{
@@ -42,6 +45,7 @@ function ProductCard({ product }) {
           }}
         >
           <button
+          onClick={() => addToCart(product)}
             style={{
               padding: "10px 15px",
               backgroundColor: "#222",
