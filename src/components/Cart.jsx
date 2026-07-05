@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import { useNavigate } from "react-router-dom";
 
 function Cart() {
   const {
@@ -8,6 +9,7 @@ function Cart() {
     increaseQuantity,
     decreaseQuantity,
   } = useContext(CartContext);
+  const navigate = useNavigate();
 
   if (cartItems.length === 0) {
     return (
@@ -69,8 +71,31 @@ function Cart() {
           </div>
         </div>
       ))}
+            <div
+        style={{
+          marginTop: "30px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <h2>Total: ${total.toFixed(2)}</h2>
 
-      <h2>Total: ${total.toFixed(2)}</h2>
+        <button
+          onClick={() => navigate("/checkout")}
+          style={{
+            padding: "12px 20px",
+            backgroundColor: "green",
+            color: "white",
+            border: "none",
+            borderRadius: "6px",
+            cursor: "pointer",
+            fontSize: "16px",
+          }}
+        >
+          Place Order
+        </button>
+      </div>
     </div>
   );
 }
