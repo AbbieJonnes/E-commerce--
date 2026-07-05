@@ -111,4 +111,4 @@ Email: abigaelmwangi534@gmail.com
 
 ## License
 
-This project is for educational purposes.
+This project is under the MIT License
